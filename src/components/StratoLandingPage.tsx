@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -19,11 +19,15 @@ import {
   FaPalette,
   FaChartLine,
   FaStar,
-  FaQuoteLeft
+  FaQuoteLeft,
+  FaMoon,
+  FaSun,
+  FaPhone
 } from 'react-icons/fa';
 
 export default function StratoLandingPage() {
   const { toast } = useToast();
+  const [isDarkMode, setIsDarkMode] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -31,6 +35,14 @@ export default function StratoLandingPage() {
     package: '',
     message: ''
   });
+
+  useEffect(() => {
+    document.documentElement.classList.toggle('dark', isDarkMode);
+  }, [isDarkMode]);
+
+  const toggleTheme = () => {
+    setIsDarkMode(!isDarkMode);
+  };
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -135,13 +147,30 @@ export default function StratoLandingPage() {
       
       {/* Header */}
       <header className="flex justify-between items-center px-6 py-4 shadow-sm border-b sticky top-0 bg-background/95 backdrop-blur-sm z-50">
-        <h1 className="text-xl font-bold text-strato-navy">Strato Systems</h1>
-        <nav className="hidden md:flex space-x-6 text-sm font-medium">
-          <button onClick={() => scrollToSection('home')} className="hover:text-primary transition-colors">Home</button>
-          <button onClick={() => scrollToSection('toolkit')} className="hover:text-primary transition-colors">Architecture Toolkit</button>
-          <button onClick={() => scrollToSection('about')} className="hover:text-primary transition-colors">About Us</button>
-          <button onClick={() => scrollToSection('contact')} className="hover:text-primary transition-colors">Contact</button>
-        </nav>
+        <div className="flex items-center space-x-3">
+          <img 
+            src="/lovable-uploads/74c53c7d-de43-4cc8-a1b9-37589bf32cdd.png" 
+            alt="Strato Systems Logo" 
+            className="h-8 w-auto"
+          />
+          <h1 className="text-xl font-bold text-strato-navy">Strato Systems</h1>
+        </div>
+        <div className="flex items-center space-x-6">
+          <nav className="hidden md:flex space-x-6 text-sm font-medium">
+            <button onClick={() => scrollToSection('home')} className="hover:text-primary transition-colors">Home</button>
+            <button onClick={() => scrollToSection('toolkit')} className="hover:text-primary transition-colors">Architecture Toolkit</button>
+            <button onClick={() => scrollToSection('about')} className="hover:text-primary transition-colors">About Us</button>
+            <button onClick={() => scrollToSection('contact')} className="hover:text-primary transition-colors">Contact</button>
+          </nav>
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={toggleTheme}
+            className="p-2"
+          >
+            {isDarkMode ? <FaSun className="h-4 w-4" /> : <FaMoon className="h-4 w-4" />}
+          </Button>
+        </div>
       </header>
 
       {/* Hero Section */}
@@ -357,9 +386,16 @@ export default function StratoLandingPage() {
       <footer className="text-center py-8 border-t bg-strato-light">
         <div className="max-w-4xl mx-auto px-6">
           <p className="font-medium mb-2">© Strato Systems LLC-FZ – Dubai, UAE</p>
-          <p className="text-sm text-muted-foreground mb-4">
-            Email: <a href="mailto:support@stratosystems.io" className="text-primary hover:underline">support@stratosystems.io</a>
-          </p>
+          <div className="text-sm text-muted-foreground mb-4 space-y-1">
+            <p>
+              <FaEnvelope className="inline mr-2" />
+              Email: <a href="mailto:systemsstratofz@gmail.com" className="text-primary hover:underline">systemsstratofz@gmail.com</a>
+            </p>
+            <p>
+              <FaPhone className="inline mr-2" />
+              Phone: <a href="tel:+971585164178" className="text-primary hover:underline">+971 58 516 4178</a>
+            </p>
+          </div>
           <div className="flex justify-center space-x-4 text-sm">
             <a href="/privacy" className="text-primary hover:underline">Privacy Policy</a>
             <span className="text-muted-foreground">|</span>
