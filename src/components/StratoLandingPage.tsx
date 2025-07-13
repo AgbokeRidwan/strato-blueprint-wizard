@@ -174,18 +174,18 @@ export default function StratoLandingPage() {
       </header>
 
       {/* Hero Section */}
-      <section className="text-center py-20 bg-gradient-to-r from-primary to-primary/90 text-primary-foreground" id="home">
+      <section className="text-center py-20 bg-gradient-to-r from-primary to-primary/90 text-primary-foreground animate-fade-in" id="home">
         <div className="max-w-4xl mx-auto px-6">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Architect Your Software the Right Way.</h2>
-          <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto opacity-90">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 animate-fade-in [animation-delay:0.2s]">Architect Your Software the Right Way.</h2>
+          <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto opacity-90 animate-fade-in [animation-delay:0.4s]">
             Strato Systems provides scalable, pre-designed digital blueprints for SaaS & enterprise platforms — with optional expert support via email only.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
+          <div className="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in [animation-delay:0.6s]">
             <Button 
               variant="hero" 
               size="lg" 
               onClick={handleDownload}
-              className="shadow-lg"
+              className="shadow-lg hover-scale"
             >
               <FaDownload className="mr-2" />
               Download Architecture Toolkit
@@ -194,6 +194,7 @@ export default function StratoLandingPage() {
               variant="hero-outline" 
               size="lg" 
               onClick={() => scrollToSection('contact')}
+              className="hover-scale"
             >
               <FaRocket className="mr-2" />
               Request Tailored Blueprint
@@ -203,12 +204,12 @@ export default function StratoLandingPage() {
       </section>
 
       {/* What You Get */}
-      <section className="py-16 px-6" id="toolkit">
+      <section className="py-16 px-6 animate-fade-in" id="toolkit">
         <div className="max-w-6xl mx-auto">
-          <h3 className="text-3xl font-bold text-center mb-12">What You Get</h3>
+          <h3 className="text-3xl font-bold text-center mb-12 animate-fade-in">What You Get</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((feature, index) => (
-              <Card key={index} className="border-l-4 border-l-primary hover:shadow-md transition-shadow">
+              <Card key={index} className="border-l-4 border-l-primary hover:shadow-lg hover-scale transition-all duration-300 animate-fade-in" style={{animationDelay: `${index * 0.1}s`}}>
                 <CardContent className="pt-6">
                   <div className="flex items-start space-x-3">
                     <feature.icon className="text-primary text-xl mt-1 flex-shrink-0" />
@@ -227,7 +228,7 @@ export default function StratoLandingPage() {
           <h3 className="text-2xl font-semibold mb-8">Perfect For</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {perfectFor.map((item, index) => (
-              <Card key={index} className="bg-background hover:shadow-md transition-shadow">
+              <Card key={index} className="bg-background hover:shadow-lg hover-scale transition-all duration-300 animate-fade-in" style={{animationDelay: `${index * 0.1}s`}}>
                 <CardContent className="pt-6">
                   <div className="flex items-center justify-center space-x-2">
                     <FaUsers className="text-primary" />
@@ -246,7 +247,7 @@ export default function StratoLandingPage() {
           <h3 className="text-3xl font-bold text-center mb-12">Pricing Options</h3>
           <div className="grid gap-8 md:grid-cols-3">
             {packages.map((pkg, index) => (
-              <Card key={index} className={`relative ${index === 1 ? 'border-primary shadow-lg scale-105' : ''}`}>
+              <Card key={index} className={`relative hover:shadow-xl hover-scale transition-all duration-300 animate-fade-in ${index === 1 ? 'border-primary shadow-lg scale-105' : ''}`} style={{animationDelay: `${index * 0.2}s`}}>
                 {index === 1 && (
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                     <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium">
@@ -269,7 +270,7 @@ export default function StratoLandingPage() {
                     ))}
                   </ul>
                   <Button 
-                    className="w-full mt-6" 
+                    className="w-full mt-6 hover-scale" 
                     variant={index === 1 ? "default" : "outline"}
                     onClick={() => scrollToSection('contact')}
                   >
@@ -292,7 +293,7 @@ export default function StratoLandingPage() {
           <h3 className="text-2xl font-semibold text-center mb-8">Client Testimonials</h3>
           <div className="grid gap-8 md:grid-cols-2">
             {testimonials.map((testimonial, index) => (
-              <Card key={index} className="bg-background">
+              <Card key={index} className="bg-background hover:shadow-lg hover-scale transition-all duration-300 animate-fade-in" style={{animationDelay: `${index * 0.2}s`}}>
                 <CardContent className="pt-6">
                   <div className="flex mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
@@ -321,7 +322,7 @@ export default function StratoLandingPage() {
             <p className="text-muted-foreground">Fill in your project details below. We'll reply via email within 24 hours.</p>
           </div>
           
-          <Card>
+          <Card className="animate-fade-in hover:shadow-lg transition-shadow duration-300">
             <CardContent className="pt-6">
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="grid gap-4 md:grid-cols-2">
@@ -368,14 +369,10 @@ export default function StratoLandingPage() {
                   onChange={(e) => handleInputChange('message', e.target.value)}
                 />
                 
-                <Button type="submit" className="w-full" size="lg">
+                <Button type="submit" className="w-full hover-scale" size="lg">
                   <FaEnvelope className="mr-2" />
                   Submit Request
                 </Button>
-                
-                <p className="text-sm text-center text-muted-foreground mt-4">
-                  ⚠ Strato Systems operates strictly via email. No phone or live calls.
-                </p>
               </form>
             </CardContent>
           </Card>
