@@ -154,7 +154,7 @@ export default function StratoLandingPage() {
           <img 
             src="/lovable-uploads/74c53c7d-de43-4cc8-a1b9-37589bf32cdd.png" 
             alt="Strato Systems Logo" 
-            className="h-8 w-auto dark:brightness-150 dark:contrast-125 dark:invert"
+            className="h-8 w-auto dark:invert dark:brightness-0 dark:contrast-200"
           />
           <h1 className="text-xl font-bold text-strato-navy dark:text-foreground">Strato Systems</h1>
         </div>
@@ -397,9 +397,9 @@ export default function StratoLandingPage() {
             </p>
           </div>
           <div className="flex justify-center space-x-4 text-sm">
-            <a href="/privacy" className="text-primary hover:underline">Privacy Policy</a>
+            <a href="/privacy" className="text-foreground hover:text-primary hover:underline transition-colors">Privacy Policy</a>
             <span className="text-muted-foreground">|</span>
-            <a href="/terms" className="text-primary hover:underline">Terms of Use</a>
+            <a href="/terms" className="text-foreground hover:text-primary hover:underline transition-colors">Terms of Use</a>
           </div>
         </div>
       </footer>
