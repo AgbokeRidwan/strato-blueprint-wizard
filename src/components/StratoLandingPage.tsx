@@ -156,7 +156,7 @@ export default function StratoLandingPage() {
             alt="Strato Systems Logo" 
             className="h-8 w-auto dark:invert dark:brightness-0 dark:contrast-200"
           />
-          <h1 className="text-xl font-bold text-strato-navy dark:text-foreground">Strato Systems</h1>
+{/*           <h1 className="text-xl font-bold text-strato-navy dark:text-foreground">Strato Systems</h1> */}
         </div>
         <div className="flex items-center space-x-6">
           <nav className="hidden md:flex space-x-6 text-sm font-medium text-foreground">
