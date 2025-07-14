@@ -154,12 +154,12 @@ export default function StratoLandingPage() {
           <img 
             src="/lovable-uploads/74c53c7d-de43-4cc8-a1b9-37589bf32cdd.png" 
             alt="Strato Systems Logo" 
-            className="h-8 w-auto dark:brightness-200 dark:contrast-200"
+            className="h-8 w-auto dark:brightness-150 dark:contrast-125 dark:invert"
           />
-          <h1 className="text-xl font-bold text-strato-navy dark:text-white">Strato Systems</h1>
+          <h1 className="text-xl font-bold text-strato-navy dark:text-foreground">Strato Systems</h1>
         </div>
         <div className="flex items-center space-x-6">
-          <nav className="hidden md:flex space-x-6 text-sm font-medium">
+          <nav className="hidden md:flex space-x-6 text-sm font-medium text-foreground">
             <button onClick={() => scrollToSection('home')} className="hover:text-primary transition-colors">Home</button>
             <button onClick={() => scrollToSection('toolkit')} className="hover:text-primary transition-colors">Architecture Toolkit</button>
             <button onClick={() => scrollToSection('about')} className="hover:text-primary transition-colors">About Us</button>
@@ -209,16 +209,16 @@ export default function StratoLandingPage() {
       {/* What You Get */}
       <section className="py-16 px-6 animate-fade-in" id="toolkit">
         <div className="max-w-6xl mx-auto">
-          <h3 className="text-3xl font-bold text-center mb-12 animate-fade-in">What You Get</h3>
+          <h3 className="text-3xl font-bold text-center mb-12 animate-fade-in text-foreground">What You Get</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {features.map((feature, index) => (
               <Card key={index} className="border-l-4 border-l-primary hover:shadow-lg hover-scale transition-all duration-300 animate-fade-in" style={{animationDelay: `${index * 0.1}s`}}>
-                <CardContent className="pt-6">
-                  <div className="flex items-start space-x-3">
-                    <feature.icon className="text-primary text-xl mt-1 flex-shrink-0" />
-                    <p className="text-sm leading-relaxed">{feature.text}</p>
-                  </div>
-                </CardContent>
+                 <CardContent className="pt-6">
+                   <div className="flex items-start space-x-3">
+                     <feature.icon className="text-primary text-xl mt-1 flex-shrink-0" />
+                     <p className="text-sm leading-relaxed text-foreground">{feature.text}</p>
+                   </div>
+                 </CardContent>
               </Card>
             ))}
           </div>
@@ -228,16 +228,16 @@ export default function StratoLandingPage() {
       {/* Perfect For */}
       <section className="bg-strato-light dark:bg-strato-gray py-12 px-6" id="about">
         <div className="max-w-4xl mx-auto text-center">
-          <h3 className="text-2xl font-semibold mb-8 dark:text-white">Perfect For</h3>
+          <h3 className="text-2xl font-semibold mb-8 text-foreground">Perfect For</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {perfectFor.map((item, index) => (
               <Card key={index} className="bg-background hover:shadow-lg hover-scale transition-all duration-300 animate-fade-in" style={{animationDelay: `${index * 0.1}s`}}>
-                <CardContent className="pt-6">
-                  <div className="flex items-center justify-center space-x-2">
-                    <FaUsers className="text-primary" />
-                    <span className="font-medium">{item}</span>
-                  </div>
-                </CardContent>
+                 <CardContent className="pt-6">
+                   <div className="flex items-center justify-center space-x-2">
+                     <FaUsers className="text-primary" />
+                     <span className="font-medium text-foreground">{item}</span>
+                   </div>
+                 </CardContent>
               </Card>
             ))}
           </div>
@@ -247,7 +247,7 @@ export default function StratoLandingPage() {
       {/* Pricing */}
       <section className="py-16 px-6" id="pricing">
         <div className="max-w-6xl mx-auto">
-          <h3 className="text-3xl font-bold text-center mb-12">Pricing Options</h3>
+          <h3 className="text-3xl font-bold text-center mb-12 text-foreground">Pricing Options</h3>
           <div className="grid gap-8 md:grid-cols-3">
             {packages.map((pkg, index) => (
               <Card key={index} className={`relative hover:shadow-xl hover-scale transition-all duration-300 animate-fade-in ${index === 1 ? 'border-primary shadow-lg scale-105' : ''}`} style={{animationDelay: `${index * 0.2}s`}}>
@@ -293,7 +293,7 @@ export default function StratoLandingPage() {
       {/* Testimonials */}
       <section className="bg-strato-gray dark:bg-strato-light py-12 px-6">
         <div className="max-w-4xl mx-auto">
-          <h3 className="text-2xl font-semibold text-center mb-8 dark:text-white">Client Testimonials</h3>
+          <h3 className="text-2xl font-semibold text-center mb-8 text-foreground">Client Testimonials</h3>
           <div className="grid gap-8 md:grid-cols-2">
             {testimonials.map((testimonial, index) => (
               <Card key={index} className="bg-background hover:shadow-lg hover-scale transition-all duration-300 animate-fade-in" style={{animationDelay: `${index * 0.2}s`}}>
@@ -303,13 +303,13 @@ export default function StratoLandingPage() {
                       <FaStar key={i} className="text-yellow-400" />
                     ))}
                   </div>
-                  <blockquote className="relative">
-                    <FaQuoteLeft className="absolute -top-2 -left-2 text-primary/20 text-2xl" />
-                    <p className="italic mb-4 pl-6">"{testimonial.quote}"</p>
-                    <footer className="text-sm font-medium text-muted-foreground">
-                      — {testimonial.author}
-                    </footer>
-                  </blockquote>
+                   <blockquote className="relative">
+                     <FaQuoteLeft className="absolute -top-2 -left-2 text-primary/20 text-2xl" />
+                     <p className="italic mb-4 pl-6 text-foreground">"{testimonial.quote}"</p>
+                     <footer className="text-sm font-medium text-muted-foreground">
+                       — {testimonial.author}
+                     </footer>
+                   </blockquote>
                 </CardContent>
               </Card>
             ))}
@@ -321,7 +321,7 @@ export default function StratoLandingPage() {
       <section className="py-16 px-6" id="contact">
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-8">
-            <h3 className="text-3xl font-bold mb-4">Let's Architect Your System the Smart Way</h3>
+            <h3 className="text-3xl font-bold mb-4 text-foreground">Let's Architect Your System the Smart Way</h3>
             <p className="text-muted-foreground">Fill in your project details below. We'll reply via email within 24 hours.</p>
           </div>
           
@@ -385,7 +385,7 @@ export default function StratoLandingPage() {
       {/* Footer */}
       <footer className="text-center py-8 border-t bg-strato-light dark:bg-strato-gray">
         <div className="max-w-4xl mx-auto px-6">
-          <p className="font-medium mb-2 dark:text-white">© Strato Systems LLC-FZ – Dubai, UAE</p>
+          <p className="font-medium mb-2 text-foreground">© Strato Systems LLC-FZ – Dubai, UAE</p>
           <div className="text-sm text-muted-foreground mb-4 space-y-1">
             <p>
               <FaEnvelope className="inline mr-2" />
@@ -406,26 +406,34 @@ export default function StratoLandingPage() {
 
       {/* Success Popup Animation */}
       {showSuccessPopup && (
-        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/50 backdrop-blur-sm">
-          <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 max-w-md mx-4 shadow-2xl animate-scale-in">
+        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/60 backdrop-blur-sm animate-fade-in">
+          <div className="bg-background border rounded-3xl p-8 max-w-md mx-4 shadow-2xl animate-[bounceIn_0.6s_cubic-bezier(0.68,-0.55,0.265,1.55)] transform">
             <div className="text-center">
-              <div className="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-4 animate-[bounce_1s_ease-in-out_infinite]">
-                <FaCheckCircle className="text-green-500 text-2xl" />
+              <div className="w-20 h-20 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-6 animate-[pulse_1.5s_ease-in-out_infinite] shadow-lg">
+                <FaCheckCircle className="text-green-500 text-3xl animate-[zoomIn_0.5s_ease-out_0.3s_both]" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+              <h3 className="text-2xl font-bold text-foreground mb-3 animate-[slideInUp_0.5s_ease-out_0.4s_both]">
                 Success! 🎉
               </h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-4">
+              <p className="text-muted-foreground mb-6 animate-[slideInUp_0.5s_ease-out_0.5s_both]">
                 Your request has been submitted successfully!
               </p>
-              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-lg p-4">
-                <p className="text-sm text-gray-700 dark:text-gray-300">
+              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-xl p-4 animate-[slideInUp_0.5s_ease-out_0.6s_both]">
+                <p className="text-sm text-foreground font-medium">
                   We'll get back to you within 24 hours via email at:
                 </p>
                 <p className="font-semibold text-primary mt-1">
                   systemsstratofz@gmail.com
                 </p>
               </div>
+              <Button 
+                variant="outline" 
+                size="sm" 
+                onClick={() => setShowSuccessPopup(false)}
+                className="mt-4 animate-[slideInUp_0.5s_ease-out_0.7s_both]"
+              >
+                Close
+              </Button>
             </div>
           </div>
         </div>
