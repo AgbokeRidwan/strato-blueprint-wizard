@@ -28,6 +28,7 @@ import {
 export default function StratoLandingPage() {
   const { toast } = useToast();
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [showSuccessPopup, setShowSuccessPopup] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -66,11 +67,13 @@ export default function StratoLandingPage() {
       return;
     }
 
-    // Simulate form submission
-    toast({
-      title: "Request Submitted Successfully!",
-      description: "We'll get back to you within 24 hours via email.",
-    });
+    // Show success popup
+    setShowSuccessPopup(true);
+    
+    // Hide popup after 3 seconds
+    setTimeout(() => {
+      setShowSuccessPopup(false);
+    }, 3000);
 
     // Reset form
     setFormData({
@@ -151,9 +154,9 @@ export default function StratoLandingPage() {
           <img 
             src="/lovable-uploads/74c53c7d-de43-4cc8-a1b9-37589bf32cdd.png" 
             alt="Strato Systems Logo" 
-            className="h-8 w-auto"
+            className="h-8 w-auto dark:brightness-200 dark:contrast-200"
           />
-          <h1 className="text-xl font-bold text-strato-navy">Strato Systems</h1>
+          <h1 className="text-xl font-bold text-strato-navy dark:text-white">Strato Systems</h1>
         </div>
         <div className="flex items-center space-x-6">
           <nav className="hidden md:flex space-x-6 text-sm font-medium">
@@ -223,9 +226,9 @@ export default function StratoLandingPage() {
       </section>
 
       {/* Perfect For */}
-      <section className="bg-strato-light py-12 px-6" id="about">
+      <section className="bg-strato-light dark:bg-strato-gray py-12 px-6" id="about">
         <div className="max-w-4xl mx-auto text-center">
-          <h3 className="text-2xl font-semibold mb-8">Perfect For</h3>
+          <h3 className="text-2xl font-semibold mb-8 dark:text-white">Perfect For</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {perfectFor.map((item, index) => (
               <Card key={index} className="bg-background hover:shadow-lg hover-scale transition-all duration-300 animate-fade-in" style={{animationDelay: `${index * 0.1}s`}}>
@@ -288,9 +291,9 @@ export default function StratoLandingPage() {
       </section>
 
       {/* Testimonials */}
-      <section className="bg-strato-gray py-12 px-6">
+      <section className="bg-strato-gray dark:bg-strato-light py-12 px-6">
         <div className="max-w-4xl mx-auto">
-          <h3 className="text-2xl font-semibold text-center mb-8">Client Testimonials</h3>
+          <h3 className="text-2xl font-semibold text-center mb-8 dark:text-white">Client Testimonials</h3>
           <div className="grid gap-8 md:grid-cols-2">
             {testimonials.map((testimonial, index) => (
               <Card key={index} className="bg-background hover:shadow-lg hover-scale transition-all duration-300 animate-fade-in" style={{animationDelay: `${index * 0.2}s`}}>
@@ -380,9 +383,9 @@ export default function StratoLandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="text-center py-8 border-t bg-strato-light">
+      <footer className="text-center py-8 border-t bg-strato-light dark:bg-strato-gray">
         <div className="max-w-4xl mx-auto px-6">
-          <p className="font-medium mb-2">© Strato Systems LLC-FZ – Dubai, UAE</p>
+          <p className="font-medium mb-2 dark:text-white">© Strato Systems LLC-FZ – Dubai, UAE</p>
           <div className="text-sm text-muted-foreground mb-4 space-y-1">
             <p>
               <FaEnvelope className="inline mr-2" />
@@ -400,6 +403,33 @@ export default function StratoLandingPage() {
           </div>
         </div>
       </footer>
+
+      {/* Success Popup Animation */}
+      {showSuccessPopup && (
+        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/50 backdrop-blur-sm">
+          <div className="bg-white dark:bg-gray-800 rounded-2xl p-8 max-w-md mx-4 shadow-2xl animate-scale-in">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-green-100 dark:bg-green-900/30 rounded-full flex items-center justify-center mx-auto mb-4 animate-[bounce_1s_ease-in-out_infinite]">
+                <FaCheckCircle className="text-green-500 text-2xl" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                Success! 🎉
+              </h3>
+              <p className="text-gray-600 dark:text-gray-300 mb-4">
+                Your request has been submitted successfully!
+              </p>
+              <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-lg p-4">
+                <p className="text-sm text-gray-700 dark:text-gray-300">
+                  We'll get back to you within 24 hours via email at:
+                </p>
+                <p className="font-semibold text-primary mt-1">
+                  systemsstratofz@gmail.com
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
 
     </div>
   );
