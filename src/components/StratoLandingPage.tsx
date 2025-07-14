@@ -152,11 +152,11 @@ export default function StratoLandingPage() {
       <header className="flex justify-between items-center px-6 py-4 shadow-sm border-b sticky top-0 bg-background/95 backdrop-blur-sm z-50">
         <div className="flex items-center space-x-3">
           <img 
-            src="/lovable-uploads/74c53c7d-de43-4cc8-a1b9-37589bf32cdd.png" 
+            src="https://sdmntprnortheu.oaiusercontent.com/files/00000000-de9c-61f4-a46b-58c8795095da/raw?se=2025-07-14T12%3A32%3A36Z&sp=r&sv=2024-08-04&sr=b&scid=ea833f8f-c494-5203-adc1-faf2c8d2df77&skoid=82a3371f-2f6c-4f81-8a78-2701b362559b&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-07-14T08%3A16%3A33Z&ske=2025-07-15T08%3A16%3A33Z&sks=b&skv=2024-08-04&sig=YRAl6ivi4g4BvL%2BrGjR3WzcqFeBKgWUWmsdiOX8h//A%3D" 
             alt="Strato Systems Logo" 
-            className="h-8 w-auto dark:invert dark:brightness-0 dark:contrast-200"
+            className="h-20 w-17 dark:invert dark:brightness-30 dark:contrast-100"
           />
-{/*           <h1 className="text-xl font-bold text-strato-navy dark:text-foreground">Strato Systems</h1> */}
+           {/* <h1 className="text-xl font-bold text-strato-navy dark:text-foreground">Strato Systems</h1> */}
         </div>
         <div className="flex items-center space-x-6">
           <nav className="hidden md:flex space-x-6 text-sm font-medium text-foreground">
