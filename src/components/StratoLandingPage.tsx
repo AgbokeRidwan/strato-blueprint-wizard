@@ -5,6 +5,8 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useToast } from '@/hooks/use-toast';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import { 
   FaDownload, 
   FaEnvelope, 
@@ -39,6 +41,12 @@ export default function StratoLandingPage() {
 
   useEffect(() => {
     document.documentElement.classList.toggle('dark', isDarkMode);
+    AOS.init({
+    duration: 800,    // animation duration in ms
+    once: true,       // animate only once on scroll
+    easing: 'ease-in-out',
+    offset: 50        // start animation when 50px into viewport
+  });
   }, [isDarkMode]);
 
   const toggleTheme = () => {
@@ -152,9 +160,9 @@ export default function StratoLandingPage() {
       <header className="flex justify-between items-center px-6 py-4 shadow-sm border-b sticky top-0 bg-background/95 backdrop-blur-sm z-50">
         <div className="flex items-center space-x-3">
           <img 
-            src="https://sdmntprnortheu.oaiusercontent.com/files/00000000-de9c-61f4-a46b-58c8795095da/raw?se=2025-07-14T12%3A32%3A36Z&sp=r&sv=2024-08-04&sr=b&scid=ea833f8f-c494-5203-adc1-faf2c8d2df77&skoid=82a3371f-2f6c-4f81-8a78-2701b362559b&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-07-14T08%3A16%3A33Z&ske=2025-07-15T08%3A16%3A33Z&sks=b&skv=2024-08-04&sig=YRAl6ivi4g4BvL%2BrGjR3WzcqFeBKgWUWmsdiOX8h//A%3D" 
+            src="https://sdmntprcentralus.oaiusercontent.com/files/00000000-c844-61f5-8d23-10c429b916c3/raw?se=2025-07-15T00%3A32%3A18Z&sp=r&sv=2024-08-04&sr=b&scid=bbad8e94-a6c3-5ef3-99c1-6ce7e3f2c4ce&skoid=02b7f7b5-29f8-416a-aeb6-99464748559d&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-07-14T11%3A16%3A38Z&ske=2025-07-15T11%3A16%3A38Z&sks=b&skv=2024-08-04&sig=1wq7BuO3wFtyHJJ5Syg9c9LG%2BBlEkzXMdbwKv3wRtPw%3D" 
             alt="Strato Systems Logo" 
-            className="h-20 w-17 dark:invert dark:brightness-30 dark:contrast-100"
+            className="h-24 w-40 transition-all duration-300"
           />
            {/* <h1 className="text-xl font-bold text-strato-navy dark:text-foreground">Strato Systems</h1> */}
         </div>
@@ -183,12 +191,13 @@ export default function StratoLandingPage() {
           <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto opacity-90 animate-fade-in [animation-delay:0.4s]">
             Strato Systems provides scalable, pre-designed digital blueprints for SaaS & enterprise platforms — with optional expert support via email only.
           </p>
-          <div className="flex flex-col sm:flex-row justify-center gap-4 animate-fade-in [animation-delay:0.6s]">
+          <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-4 animate-fade-in [animation-delay:0.6s]">
             <Button 
               variant="hero" 
               size="lg" 
               onClick={handleDownload}
-              className="shadow-lg hover-scale"
+              className="w-full sm:w-auto px-6 py-4 shadow-lg hover-scale"
+              data-aos="fade-up"
             >
               <FaDownload className="mr-2" />
               Download Architecture Toolkit
@@ -197,7 +206,9 @@ export default function StratoLandingPage() {
               variant="hero-outline" 
               size="lg" 
               onClick={() => scrollToSection('contact')}
-              className="hover-scale"
+              className="w-full sm:w-auto px-6 py-4 hover-scale"
+               data-aos="fade-up"
+                data-aos-delay="100"
             >
               <FaRocket className="mr-2" />
               Request Tailored Blueprint
@@ -250,7 +261,12 @@ export default function StratoLandingPage() {
           <h3 className="text-3xl font-bold text-center mb-12 text-foreground">Pricing Options</h3>
           <div className="grid gap-8 md:grid-cols-3">
             {packages.map((pkg, index) => (
-              <Card key={index} className={`relative hover:shadow-xl hover-scale transition-all duration-300 animate-fade-in ${index === 1 ? 'border-primary shadow-lg scale-105' : ''}`} style={{animationDelay: `${index * 0.2}s`}}>
+              <Card 
+              key={index} 
+              className={`relative hover:shadow-xl hover-scale transition-all duration-300 ${index === 1 ? 'border-primary shadow-lg scale-105' : ''}`} 
+              data-aos="zoom-in" 
+              data-aos-delay={`${index * 100}`}
+              >
                 {index === 1 && (
                   <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
                     <span className="bg-primary text-primary-foreground px-3 py-1 rounded-full text-sm font-medium">
