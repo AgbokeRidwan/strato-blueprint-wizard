@@ -399,7 +399,7 @@ export default function StratoLandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="text-center py-8 border-t bg-strato-light dark:bg-strato-gray">
+      <footer className="text-center py-8 border-t bg-strato-light dark:bg-neutral-900 text-foreground">
         <div className="max-w-4xl mx-auto px-6">
           <p className="font-medium mb-2 text-foreground">© Strato Systems LLC-FZ – Dubai, UAE</p>
           <div className="text-sm text-muted-foreground mb-4 space-y-1">
