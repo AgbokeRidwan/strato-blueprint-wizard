@@ -26,6 +26,7 @@ import {
   FaSun,
   FaPhone
 } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 export default function StratoLandingPage() {
   const { toast } = useToast();
@@ -420,9 +421,10 @@ export default function StratoLandingPage() {
             </p>
           </div>
           <div className="flex justify-center space-x-4 text-sm">
-            <a href="/privacy" className="text-foreground hover:text-primary hover:underline transition-colors">Privacy Policy</a>
+           <Link to="/privacy" className="text-foreground hover:text-primary hover:underline transition-colors">Privacy Policy</Link>
             <span className="text-muted-foreground">|</span>
-            <a href="/terms" className="text-foreground hover:text-primary hover:underline transition-colors">Terms of Use</a>
+            <Link to="/terms" className="text-foreground hover:text-primary hover:underline transition-colors">Terms of Use</Link>
+
           </div>
         </div>
       </footer>

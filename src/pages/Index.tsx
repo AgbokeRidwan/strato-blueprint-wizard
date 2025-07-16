@@ -1,3 +1,4 @@
+
 import StratoLandingPage from '@/components/StratoLandingPage';
 
 const Index = () => {
