@@ -159,13 +159,20 @@ export default function StratoLandingPage() {
       {/* Header */}
       <header className="flex justify-between items-center px-6 py-4 shadow-sm border-b sticky top-0 bg-background/95 backdrop-blur-sm z-50">
         <div className="flex items-center space-x-3">
+          {/* Light mode logo */}
           <img 
-            src="https://sdmntprcentralus.oaiusercontent.com/files/00000000-c844-61f5-8d23-10c429b916c3/raw?se=2025-07-15T00%3A32%3A18Z&sp=r&sv=2024-08-04&sr=b&scid=bbad8e94-a6c3-5ef3-99c1-6ce7e3f2c4ce&skoid=02b7f7b5-29f8-416a-aeb6-99464748559d&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-07-14T11%3A16%3A38Z&ske=2025-07-15T11%3A16%3A38Z&sks=b&skv=2024-08-04&sig=1wq7BuO3wFtyHJJ5Syg9c9LG%2BBlEkzXMdbwKv3wRtPw%3D" 
-            alt="Strato Systems Logo" 
-            className="h-24 w-40 transition-all duration-300"
+            src="/strato white logo.png" 
+            alt="Strato Logo Light" 
+            className="h-16 md:h-24 w-auto max-w-[180px] object-contain dark:hidden transition-all duration-300"
           />
-           {/* <h1 className="text-xl font-bold text-strato-navy dark:text-foreground">Strato Systems</h1> */}
+          <img 
+            src="/strato logo.png" 
+            alt="Strato Logo Dark" 
+            className="h-16 md:h-24 w-auto max-w-[180px] object-contain hidden dark:block transition-all duration-300"
+          />
+
         </div>
+
         <div className="flex items-center space-x-6">
           <nav className="hidden md:flex space-x-6 text-sm font-medium text-foreground">
             <button onClick={() => scrollToSection('home')} className="hover:text-primary transition-colors">Home</button>
