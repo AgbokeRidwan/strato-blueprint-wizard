@@ -32,6 +32,7 @@ export default function StratoLandingPage() {
   const { toast } = useToast();
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -190,8 +191,37 @@ export default function StratoLandingPage() {
           >
             {isDarkMode ? <FaSun className="h-4 w-4" /> : <FaMoon className="h-4 w-4" />}
           </Button>
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden p-2 text-foreground hover:text-primary focus:outline-none"
+          >
+            {/* Hamburger Icon */}
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d={isMobileMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"} />
+            </svg>
+          </button>
+
         </div>
       </header>
+      {isMobileMenuOpen && (
+      <div className="md:hidden bg-background border-b shadow-sm z-40 animate-fade-in">
+        <nav className="flex flex-col space-y-4 px-6 py-4 text-sm font-medium text-foreground">
+          <button onClick={() => { scrollToSection('home'); setIsMobileMenuOpen(false); }} className="hover:text-primary">
+            Home
+          </button>
+          <button onClick={() => { scrollToSection('toolkit'); setIsMobileMenuOpen(false); }} className="hover:text-primary">
+            Architecture Toolkit
+          </button>
+          <button onClick={() => { scrollToSection('about'); setIsMobileMenuOpen(false); }} className="hover:text-primary">
+            About Us
+          </button>
+          <button onClick={() => { scrollToSection('contact'); setIsMobileMenuOpen(false); }} className="hover:text-primary">
+            Contact
+          </button>
+        </nav>
+      </div>
+    )}
+
 
       {/* Hero Section */}
       <section className="text-center py-20 bg-gradient-to-r from-primary to-primary/90 text-primary-foreground animate-fade-in" id="home">
