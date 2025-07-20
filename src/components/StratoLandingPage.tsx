@@ -164,12 +164,11 @@ export default function StratoLandingPage() {
           <img 
             src="/strato logo bglw.png" 
             alt="Strato Logo Light" 
-             className="h-[48px] md:h-[72px] w-auto max-w-[200px] object-contain dark:hidden transition-all duration-300"
-          />
+            className="h-[60px] md:h-[80px] w-auto max-w-[240px] object-contain dark:hidden transition-all duration-300"/>
           <img 
             src="/strato logo bgl.png" 
             alt="Strato Logo Dark" 
-            className="h-[48px] md:h-[72px] w-auto max-w-[200px] object-contain hidden dark:block transition-all duration-300"
+            className="h-[60px] md:h-[80px] w-auto max-w-[240px] object-contain hidden dark:block transition-all duration-300"
           />
 
         </div>
