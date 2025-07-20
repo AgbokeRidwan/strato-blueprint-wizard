@@ -158,18 +158,20 @@ export default function StratoLandingPage() {
     <div className="font-sans text-foreground bg-background">
       
       {/* Header */}
-      <header className="flex justify-between items-center px-3 py-1 md:px-6 md:py-4 shadow-sm border-b sticky top-0 bg-background/95 backdrop-blur-sm z-50 min-h-[56px]">
+      <header className="flex justify-between items-center px-3 py-0 md:px-6 md:py-4 shadow-sm border-b sticky top-0 bg-background/95 backdrop-blur-sm z-50 min-h-[56px] md:min-h-[80px]">
         <div className="flex items-center space-x-3">
           {/* Light mode logo */}
           <img 
             src="/strato logo bglw.png" 
             alt="Strato Logo Light" 
-            className="h-[60px] md:h-[80px] w-auto max-w-[240px] object-contain dark:hidden transition-all duration-300"/>
+            className="h-[56px] md:h-[72px] w-auto max-w-[220px] object-contain dark:hidden transition-all duration-300 drop-shadow-md contrast-125 brightness-110"
+          />
           <img 
             src="/strato logo bgl.png" 
             alt="Strato Logo Dark" 
-            className="h-[60px] md:h-[80px] w-auto max-w-[240px] object-contain hidden dark:block transition-all duration-300"
+            className="h-[56px] md:h-[72px] w-auto max-w-[220px] object-contain hidden dark:block transition-all duration-300 drop-shadow-md contrast-125 brightness-110"
           />
+
 
         </div>
 
