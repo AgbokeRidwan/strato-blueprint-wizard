@@ -156,7 +156,7 @@ export default function StratoLandingPage() {
   ];
 
   return (
-    <div className="font-sans text-foreground bg-background">
+     <div className="font-sans text-foreground bg-background">
       
       {/* Header */}
       <header className="flex justify-between items-center px-3 py-0 md:px-6 md:py-4 shadow-sm border-b sticky top-0 bg-background/95 backdrop-blur-sm z-50 min-h-[56px] md:min-h-[80px]">
@@ -165,16 +165,16 @@ export default function StratoLandingPage() {
           <img 
             src="/strato logo bglw.png" 
             alt="Strato Logo Light" 
-            className="h-[56px] md:h-[84px] w-auto max-w-[260px] object-contain dark:hidden transition-all duration-300 contrast-125 brightness-110"
+            className="h-[72px] md:h-[84px] w-auto max-w-[full] object-contain block dark:hidden transition-all duration-300 contrast-125 brightness-110"
           />
           <img 
             src="/strato logo bgl.png" 
             alt="Strato Logo Dark" 
-            className="h-[56px] md:h-[84px] w-auto max-w-[260px] object-contain hidden dark:block transition-all duration-300 contrast-125 brightness-110"
+            className="h-[72px] md:h-[84px] w-auto max-w-[full] object-contain hidden dark:block transition-all duration-300 contrast-125 brightness-110"
           />
 
        </div>
-
+ 
         <div className="flex items-center space-x-6">
           <nav className="hidden md:flex space-x-6 text-sm font-medium text-foreground">
             <button onClick={() => scrollToSection('home')} className="hover:text-primary transition-colors">Home</button>
